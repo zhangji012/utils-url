@@ -1,0 +1,65 @@
+{
+  "name": "TDUrl",
+  "version": "1.0.0",
+  "description": "URL处理封装",
+  "main": "lib/index.js",
+  "scripts": {
+    "start": "live-server ./ --port=8888",
+    "build": "NODE_ENV=production webpack --config webpack.config.js --mode=production",
+    "lint": "eslint .",
+    "test": "npm run lint && nyc ava",
+    "test:watch": "ava --watch",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "repository": {
+    "url": "https://github.com/zhangji012/utils-url.git",
+    "type": "git"
+  },
+  "author": "zhangji",
+  "keywords": [
+    "http",
+    "axios"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@tongdun/utils-log4j": "^1.0.0",
+    "reac": "^0.0.0"
+  },
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "coveralls": "^3.0.0",
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-friendly-formatter": "^4.0.0",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "live-server": "^1.2.0",
+    "nyc": "^11.6.0",
+    "uglifyjs-webpack-plugin": "^1.2.4",
+    "webpack": "^4.4.1",
+    "webpack-cli": "^2.0.13"
+  },
+  "ava": {
+    "files": [
+      "test/test.js"
+    ],
+    "verbose": true,
+    "babel": "inherit",
+    "require": [
+      "babel-core/register"
+    ]
+  },
+  "nyc": {
+    "exclude": [
+      "test/*.js"
+    ]
+  }
+}
