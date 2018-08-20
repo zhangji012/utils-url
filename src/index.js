@@ -6,18 +6,9 @@ import TDLog4j from '@tongdun/utils-log4j'
 // 2：prototype.typeCheck为什么不能和上面写在一起
 class TDUrl {
   constructor() {
-    // 在构造方法中绑定this，this就不会在调用时指向其他地方，或者使用箭头函数
-    this.parseURL = this.parseURL.bind(this)
-    this.parseURLParams = this.parseURLParams.bind(this)
-    this.getURLParam = this.getURLParam.bind(this)
-    this.appendParam = this.appendParam.bind(this)
-    this.appendParams = this.appendParams.bind(this)
-    this.removeParams = this.removeParams.bind(this)
-    this.appendParams = this.appendParams.bind(this)
-    this.printErrorLog = this.printErrorLog.bind(this)
-  }
 
-  parseURL(url = window.location.href) { // 把url的所有信息转化成json对象
+  }
+  parseURL = (url = window.location.href) => { // 把url的所有信息转化成json对象
     try {
       if (!this.typeCheck.isString(url)) {
         this.printErrorLog({ name: 'parseURL', message: '参数url非字符类型' })
@@ -61,7 +52,7 @@ class TDUrl {
     }
   }
 
-  parseURLParams(url = window.location.href) { // 把url的参数部分转化成json对象
+  parseURLParams = (url = window.location.href) => { // 把url的参数部分转化成json对象
     try {
       if (!this.typeCheck.isString(url)) {
         this.printErrorLog({ name: 'parseURLParams', message: '参数url非字符类型' })
@@ -88,7 +79,7 @@ class TDUrl {
     }
   }
 
-  getURLParam(key, url = window.location.href) { // 通过key获取url中的参数值
+  getURLParam = (key, url = window.location.href) => { // 通过key获取url中的参数值
     try {
       let e = {}
       if (!this.typeCheck.isString(key)) {
@@ -115,7 +106,7 @@ class TDUrl {
     }
   }
 
-  appendParam(key, value, url = window.location.href) { // 向url中添加字段
+  appendParam = (key, value, url = window.location.href) => { // 向url中添加字段
     let e = {}
     if (!this.typeCheck.isString(key)) {
       e = { name: 'appendParam', message: '参数key非字符类型' }
@@ -141,7 +132,7 @@ class TDUrl {
     return this.appendParams({ [key]: value }, url)
   }
 
-  appendParams(params, url = window.location.href) { // 向url中添加多个字段
+  appendParams = (params, url = window.location.href) => { // 向url中添加多个字段
     try {
       let e = {}
       if (!this.typeCheck.isObject(params)) {
@@ -175,7 +166,7 @@ class TDUrl {
     }
   }
 
-  removeParams(arr, url = window.location.href) { // 从url中去除多个字段
+  removeParams = (arr, url = window.location.href) => { // 从url中去除多个字段
     try {
       let e = {}
       if (!this.typeCheck.isArray(arr)) {
@@ -208,7 +199,7 @@ class TDUrl {
     }
   }
 
-  printErrorLog(e) { // 打印参数日志
+  printErrorLog = (e) => { // 打印参数日志
     TDLog4j.error('error name:', e.name)
     TDLog4j.error('error message:', e.message)
     TDLog4j.error('error description:', e.description)

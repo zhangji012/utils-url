@@ -1,5 +1,5 @@
 {
-  "name": "TDUrl",
+  "name": "my-utils-url",
   "version": "1.0.0",
   "description": "URL处理封装",
   "main": "lib/index.js",
@@ -15,10 +15,11 @@
     "url": "https://github.com/zhangji012/utils-url.git",
     "type": "git"
   },
-  "author": "zhangji",
+  "author": "zhangji012",
   "keywords": [
     "http",
-    "axios"
+    "axios",
+    "url"
   ],
   "license": "MIT",
   "dependencies": {
